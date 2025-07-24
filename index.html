@@ -3,29 +3,37 @@
 <head>
     <title>MicroMentor Match</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#3b5998">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
         .tabs {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 100%;
+            margin: 20px;
             text-align: center;
+            padding: 0 10px;
         }
         .tab-links {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 15px;
+            gap: 5px;
         }
         .tab-links a {
-            padding: 8px 16px;
-            margin: 0 5px;
+            padding: 8px 12px;
+            margin: 5px;
             background: #3b5998;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
         }
         .tab-links a.active {
             background: #2a4373;
@@ -38,8 +46,10 @@
         }
         iframe {
             width: 100%;
-            height: 600px;
+            max-width: 100%;
+            height: 500px;
             border: none;
+            box-sizing: border-box;
         }
         footer {
             text-align: center;
@@ -49,10 +59,27 @@
         h1, h2 {
             color: #3b5998;
             font-weight: bold;
+            font-size: 24px;
         }
         p {
             line-height: 1.5;
             font-size: 16px;
+        }
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .tab-links a {
+                font-size: 12px;
+                padding: 6px 8px;
+                margin: 3px;
+            }
+            iframe {
+                height: 400px;
+            }
         }
     </style>
 </head>
