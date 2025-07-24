@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MicroMentor Match</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#3b5998">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .tabs {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .tab-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .tab-links a {
+            padding: 8px 16px;
+            margin: 0 5px;
+            background: #3b5998;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab-links a.active {
+            background: #2a4373;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        h1, h2 {
+            color: #3b5998;
+            font-weight: bold;
+        }
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+            <a href="#submit">Ask a Question</a>
+            <a href="#mentor">Become a Mentor</a>
+        </div>
+        <div id="home" class="tab-content active">
+            <h1>Welcome to MicroMentor Match</h1>
+            <p>Get free, 15-minute text or email advice for small problems, from tech fixes to workplace stress. Click a tab above to get started!</p>
+        </div>
+        <div id="about" class="tab-content">
+            <h2>About Us</h2>
+            <p>Inspired by a need for simple, human support, MicroMentor Match connects people with volunteer mentors for fast, practical solutions. Whether it’s a tech hiccup or workplace stress, we’re here to help you move forward.</p>
+            <a href="[Your Buy Me a Coffee URL]" class="button">Support Us</a>
+        </div>
+        <div id="faq" class="tab-content">
+            <h2>FAQ</h2>
+            <p>
+                <strong>How does it work?</strong> Submit your question via the “Ask a Question” tab, and we’ll match you with a mentor within 24 hours.<br>
+                <strong>Is it free?</strong> Yes, our mentors volunteer their time.<br>
+                <strong>What problems can I ask about?</strong> Small issues like WordPress errors, resume tips, or stress management.<br>
+                <strong>No response?</strong> We’ll let you know within 48 hours if no mentor is available.<br>
+                <strong>How do I mentor?</strong> Sign up via the “Become a Mentor” tab.
+            </p>
+        </div>
+        <div id="submit" class="tab-content">
+            <h2>Ask a Question</h2>
+            <p>Describe your problem below for a 15-minute text or email session. <strong>Tip:</strong> Be specific (e.g., “Need help with WordPress” or “How to handle a tough colleague”).</p>
+            <!-- Paste your Google Form "Ask a Question" iframe code here -->
+        </div>
+        <div id="mentor" class="tab-content">
+            <h2>Become a Mentor</h2>
+            <p>Share your expertise in 15-minute sessions. <strong>Tip:</strong> List skills like “Excel,” “web design,” or “stress management.”</p>
+            <!-- Paste your Google Form "Mentor Sign-Up" iframe code here -->
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 MicroMentor Match. <a href="[Your Buy Me a Coffee URL]">Support us!</a></p>
+    </footer>
+    <script>
+        document.querySelectorAll('.tab-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.tab-links a').forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelector(this.getAttribute('href')).classList.add('active');
+            });
+        });
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script>
+</body>
+</html>
